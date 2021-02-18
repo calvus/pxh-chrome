@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <!-- pxh-chrome: ##BUILDVERSION##  (DO NOT DELETE THIS BLOCK) -->
+  <head>
+    <title>{{appname}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{{newrelicHeader}}}
+    <link rel="shortcut icon" type="image/png" href="{{baseUrl}}/bower_components/pxh-chrome/dist/favicon.ico">
+    <link rel="stylesheet" href="{{baseUrl}}/bower_components/pxh-chrome/dist/css/pxh-chrome.min.css">
+    {{#if logo}}
+      {{#if logoURI}}
+      <style type="text/css">
+        .pxh-drawer-header__link--image {
+          background-image: url('{{logoURI}}');
+        }
+      </style>
+      {{/if}}
+    {{/if}}
+    {{#each helpers.globalScripts}}
+      <script src="{{this}}"></script>
+    {{/each}}
+
+    {{#each helpers.globalCSS}}
+      <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+  </head>
+  <body{{#if chromeless}} class="pxh-chromeless"{{else}} class="pxh-chromeful"{{/if}}>
+
+
+    <script>
+      // put the nav object on the window, so it's available in javascript
+      window.nav = {{{navStr}}};
+
+    </script>
+
+    {{#if chromeless}}
+    {{{body}}}
+    {{else}}
+    <div class="pxh-drawer pxh-drawer--hidden-until@md pxh-drawer--narrow@md pxh-drawer--wide@lg" id="js-drawer">
+      <div class="pxh-drawer-toggle">
+        <a href="#" class="pxh-drawer-toggle__link" title="Toggle drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="291 489.4 20 16" class="pxh-drawer-toggle__icon"><path d="M291 489.4v4h20v-4h-20zm0 10h20v-4h-20v4zm0 6h20v-4h-20v4z"></path></svg>
+        </a>
+      </div>
+      <h1 class="pxh-drawer-header{{#if logo}} pxh-drawer-header--image" id="js-drawer-header--image{{/if}}">
+        <a href="#" class="pxh-drawer-header__link{{#if logo}} pxh-drawer-header__link--image{{/if}} pxh-drawer-header__link--narrow@md pxh-drawer-header__link--wide@lg" title="{{appname}}"{{#if logo}} id="js-drawer-header__link--image"{{/if}}>
+           {{appname}}
+        </a>
+      </h1>
+      <div class="pxh-navigation pxh-navigation--narrow@md pxh-navigation--wide@lg">
+        <ul class="pxh-navigation__list" id="js-navigation__list">
+          <li class="pxh-spinner pxh-spinner--small pxh-spinner--inverted"></li>
+        </ul>
+      </div>
+      <div id="pxh-user-menu" class="pxh-login pxh-login--narrow@md pxh-login--wide@lg"></div>
+    </div>
+    <div class="pxh-overlay pxh-overlay--hidden pxh-overlay--hidden@lg"></div>
+    <div class="pxh-view-header-drawer-toggle pxh-view-header-drawer-toggle--hidden@md">
+      <a href="#" class="pxh-view-header-drawer-toggle__link" title="Toggle drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="291 489.4 20 16" class="pxh-view-header-drawer-toggle__icon"><path d="M291 489.4v4h20v-4h-20zm0 10h20v-4h-20v4zm0 6h20v-4h-20v4z"></path></svg>
+      </a>
+    </div>
+    {{{ body }}}
+    <div class="pxh-notifications pxh-notifications@md pxh-notifications--narrow@md pxh-notifications--wide@lg" id="js-notifications">
+      <div class="pxh-notifications__header">
+        <div class="pxh-notifications__action">
+        </div>
+        <div class="pxh-notifications__title">
+          {{toastNotificationCenterTitle}}
+        </div>
+        <div class="pxh-notifications__clear">
+          <a href="#" class="pxh-notifications__link" id="js-notifications__link--clear" title="{{toastClearBtnTitle}}">{{toastClearBtnTxt}}</a>
+        </div>
+      </div>
+      <div class="pxh-notifications__list pxh-notifications__list@md" id="js-notifications__list">
+        <div class="pxh-notifications__empty">{{toastNoNewMsgTxt}}</div>
+      </div>
+    </div>
+    {{/if}}
+    <div class="pxh-toasts pxh-toasts--narrow@md pxh-toasts--wide@lg" id="js-toasts">
+    </div>
+    
+    <script src="{{baseUrl}}/js/nav.min.js"></script>
+    <script src="{{baseUrl}}/bower_components/pxh-chrome/dist/js/pxh-chrome.min.js"></script>
+  </body>
+</html>

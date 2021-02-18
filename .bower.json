@@ -1,0 +1,42 @@
+{
+  "name": "pxh-chrome",
+  "private": true,
+  "description": "Application chrome for the Predix UI App Hub",
+  "homepage": "https://github.build.ge.com/hubs/pxh-chrome",
+  "ignore": [
+    ".babelrc",
+    ".bowerrc",
+    ".editorconfig",
+    ".eslintrc",
+    ".gitattributes",
+    ".gitignore",
+    ".yo-rc.json",
+    ".tmp",
+    "bower.json",
+    "gulpfile.babel.js",
+    "package.json",
+    "THEMING.md",
+    "yarn.lock",
+    "bower_components",
+    "dist/*.html",
+    "node_modules",
+    "public",
+    "src",
+    "test"
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "font-awesome": "^4.7.0",
+    "mocha": "^3.2.0",
+    "sass-mq": "^3.3.1"
+  },
+  "_release": "a9629396fd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a9629396fde3ce67e3a9a7a7911ead0ab3323e0a"
+  },
+  "_source": "https://github.com/jonniespratley/pxh-chrome.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/jonniespratley/pxh-chrome.git"
+}
